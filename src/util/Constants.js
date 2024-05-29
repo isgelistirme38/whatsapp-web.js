@@ -2,20 +2,23 @@
 
 exports.WhatsWebURL = 'https://web.whatsapp.com/';
 
+const WEB_VERSION = '2.2412.54';
+
 exports.DefaultOptions = {
     puppeteer: {
         headless: true,
         defaultViewport: null
     },
-    webVersion: '2.2346.52',
+    webVersion: WEB_VERSION,
     webVersionCache: {
-        type: 'local',
+        type: 'remote',
+        remotePath: `https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/${WEB_VERSION}.html`,
     },
     authTimeoutMs: 0,
     qrMaxRetries: 0,
     takeoverOnConflict: false,
     takeoverTimeoutMs: 0,
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36',
     ffmpegPath: 'ffmpeg',
     bypassCSP: false,
     proxyAuthentication: undefined
@@ -60,6 +63,7 @@ exports.Events = {
     GROUP_MEMBERSHIP_REQUEST: 'group_membership_request',
     GROUP_UPDATE: 'group_update',
     QR_RECEIVED: 'qr',
+    CODE_RECEIVED: 'code',
     LOADING_SCREEN: 'loading_screen',
     DISCONNECTED: 'disconnected',
     STATE_CHANGED: 'change_state',
